@@ -1,0 +1,48 @@
+% -- Header de Matemática --
+% -- Inspirado em: https://github.com/gillescastel/university-setup/blob/master/preamble.tex
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[brazil]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{mlmodern} % -- versão 'melhorada' da lmodern
+
+% Espaçamento entre parágrafos
+\usepackage{parskip}
+
+% Pacotes relacionados a matemática
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+
+% Fancy script capitals
+\usepackage{mathrsfs}
+\usepackage{cancel}
+
+% Fonte matemática mais bold
+\usepackage{bm}
+
+% \newcommand pra agilizar a inserção de conjuntos numéricos
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Sistemas de equação
+\usepackage{systeme}
+
+% Design mais legal pra \lim
+\let\svlim\lim\def\lim{\svlim\limits}
+
+% linha horizontal
+\newcommand\hr{
+    \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+}
+
+% Eu
+\author{Mickael Lima}
