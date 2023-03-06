@@ -1,6 +1,5 @@
 % -- Header de Matemática --
 % -- Inspirado em: https://github.com/gillescastel/university-setup/blob/master/preamble.tex
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -10,7 +9,25 @@
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{enumitem}
-\usepackage{mlmodern} % -- versão 'melhorada' da lmodern
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% -- Espaçamento entre os parágrafos
+\setlength{\parskip}{0.2cm}
+
+% -- Isso corrige um pequeno problema ao adicionar hyperref 
+\def\MakeUppercaseUnsupportedInPdfStrings{\scshape}
+
+\usepackage{color}   
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all, 
+    linkcolor=blue,
+}
+
+% -- melhora o \lim no math mode compacto (dentro dos $$)
+\let\svlim\lim\def\lim{\svlim\limits}
 
 % Espaçamento entre parágrafos
 \usepackage{parskip}
@@ -22,27 +39,55 @@
 \usepackage{mathrsfs}
 \usepackage{cancel}
 
-% Fonte matemática mais bold
+% Fonte matemática negrita
 \usepackage{bm}
 
 % \newcommand pra agilizar a inserção de conjuntos numéricos
 \newcommand\N{\ensuremath{\mathbb{N}}}
 \newcommand\R{\ensuremath{\mathbb{R}}}
 \newcommand\Z{\ensuremath{\mathbb{Z}}}
-\renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
 
 % Sistemas de equação
 \usepackage{systeme}
 
-% Design mais legal pra \lim
-\let\svlim\lim\def\lim{\svlim\limits}
-
 % linha horizontal
 \newcommand\hr{
     \noindent\rule[0.5ex]{\linewidth}{0.5pt}
 }
+
+% -- caixinhas de "definição"
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newcounter{defin}[section]\setcounter{defin}{0}
+\renewcommand{\thedefin}{\arabic{section}.\arabic{defin}}
+
+\newenvironment{defin}[2][]{%
+    \refstepcounter{defin}
+
+    \ifstrempty{#1}%
+      {\mdfsetup{%
+          frametitle={%
+            \tikz[baseline=(current bounding box.east),outer sep=0pt]
+            \node[anchor=east,rectangle,fill=blue!20]
+            {\strut Definição~\thedefin};}
+        }%
+      }{\mdfsetup{%
+          frametitle={%
+            \tikz[baseline=(current bounding box.east),outer sep=0pt]
+            \node[anchor=east,rectangle,fill=blue!20]
+            {\strut Definição~\thedefin:~#1};}%
+        }%
+      }%
+      \mdfsetup{%
+        innertopmargin=1pt,linecolor=blue!20,%
+        linewidth=2pt,topline=true,%
+        frametitleaboveskip=\dimexpr-\ht\strutbox\relax%
+      }
+
+      \begin{mdframed}[]\relax}{%
+\end{mdframed}}
 
 % Eu
 \author{Mickael Lima}

@@ -1,0 +1,195 @@
+\chapter{Limites}%
+\label{chap:limites}
+
+\section{Definição Intuitiva de Limite}%
+\label{sec:def-intuitiva-lim}
+
+Seja $f(x)$ uma função definida dentro do conjunto real \R, onde não necessariamente \(\mathbb{D} = \R\), chama-se de \textbf{limite de \bm{$f(x)$} com \bm{$x$} tendendo a \bm{$a$}} o valor de que $f(x)$ se aproxima quando a distância entre $x$ e $a$ se aproxima de 0 (ou seja, $a$ se aproxima do valor de $x$). A notação matemática de limite é dada abaixo:
+
+\begin{equation}
+  \lim_{x\to a} f(x) = L
+\end{equation}
+
+Nota-se que $f(a)$ não precisa estar definido\footnote{Por exemplo, se $x\to 2$ em $\frac{x^{2} - 4x + 4}{x - 2}$, o limite está definido e é igual a 0, apesar de $f(2)$ ser indefinido}, tampouco é obrigatório que $f(a) = L$, apesar deste ser o caso na maioria das vezes.
+
+\subsection{Limites Laterais}
+
+A distância entre $x$ e $a$ pode ser tanto para os casos em que $x>a$ e $a>x$. No caso em que $x>a$, o limite vem da direita, para $x<a$ o limite vem da esquerda. As notações para limites de esquerda e direita são dadas colocando um sinal acima de $a$, sendo positivo quando a distância entre $x$ e $a$ é positiva e negativo quando a distância entre $x$ e $a$ é negativa.
+
+\begin{equation*}
+  \lim_{x\to a^{+}} f(x),  \lim_{x\to a^{-}} f(x)
+\end{equation*}
+
+Nesse contexto, em adição a sessão \ref{sec:def-intuitiva-lim}, pode-se completar a definição fornecida.
+
+\begin{defin}%
+  OO limite da função $f(x)$ só é definido se, e somente se, os limites laterais
+também forem definidos e \textbf{iguais} entre si.
+
+  \begin{equation*}
+    \lim_{x\to a} f(x) = \lim_{x\to a^{-}} f(x) = \lim_{x\to a^{-} f(x)}
+  \end{equation*}
+\end{defin}
+
+\subsection{Limites Infinitos}
+
+No caso
+
+\begin{equation*}
+\lim_{x\to 0} \frac{1}{x^{2}}
+\end{equation*}
+
+O valor de $L$ é indefinido, pois a função tenderá ao infinito (ou seja, $L$ será tão grande quando queira).
+
+\section{Propriedade dos Limites}%
+
+Considere as funções reais $f(x)$ e $g(x)$ e que os limites bilaterais $L_{f}$ e $L_{g}$ para $x\to a$ estejam definidos. Nessa situação, as seguintes propriedades são válidas.
+
+\subsection{Soma}%
+\vspace{0.3cm}
+\begin{defin}
+  OO limite da soma é igual a soma dos limites
+  \begin{equation}
+    \lim_{x\to a} [f(x) + g(x)] = \lim_{x\to a} f(x) + \lim_{x\to a} g(x)
+  \end{equation}
+\label{lim:prop:soma}
+\end{defin}
+
+\subsection{Subtração}
+\vspace{0.3cm}
+
+\begin{defin}
+  OO limite da diferença é igual a diferença entre os limites (análogo a \ref{lim:prop:soma})
+ \begin{equation}
+    \lim_{x\to a} [f(x) - g(x)] = \lim_{x\to a} f(x) - \lim_{x\to a} g(x)
+ \end{equation}
+\label{lim:prop:diff}
+\end{defin}
+
+\subsection{Multiplicação}
+\vspace{0.3cm}
+
+\begin{defin}
+OO limite do produto é o produto dos limites
+\begin{equation}
+  \lim_{x\to a} [f(x)\cdot g(x)] = \lim_{x\to a} f(x) \cdot \lim_{x\to a}
+\end{equation}
+
+Essa regra também serve para constantes, usando $\lim_{x\to a} c = c$ tem-se
+\begin{equation}
+\lim_{x\to a} [c\cdot f(x)] = c\cdot \lim_{x\to a} f(x)
+\end{equation}
+\label{lim:prop:prod}
+\end{defin}
+
+\subsection{Divisão}
+\vspace{0.3cm}
+
+\begin{defin}
+  OO limite do quociente é o quociente dos limites
+  \begin{equation}
+    \lim_{x\to a} \left[\frac{f(x)}{g(x)}\right] = \frac{\lim_{x\to a} f(x)}{\lim_{x\to a} g(x)}, \lim_{x\to a} g(x)\neq 0
+  \end{equation}
+  \label{lim:prop:quoc}
+\end{defin}
+
+\subsection{Implicações}
+
+As propriedades acima implicam em novas propriedades, seja por recursão ou apenas por consequência. Abaixo algumas dessas implicações
+
+\begin{itemize}
+  \item Pela definição intuitiva, \bm{$\displaystyle \lim_{x\to a} x = a$}
+  \item Usando \ref{lim:prop:prod}, pode-se constatar que \bm{$\displaystyle \lim_{x\to a} [f(x)]^{n} = \left[\lim_{x\to a} f(x)\right]^{n}$}
+  \item Unindo os dois itens anteriores, chega-se em \bm{$\displaystyle \lim_{x\to a} x^{n} = a^{n}$}
+  \item O item anterior também implica que \bm{$\displaystyle \lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}$}
+  \item Também, \bm{$\displaystyle \lim_{x\to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x\to a} f(x)}$}
+\end{itemize}
+
+\subsection{O Teorema do Confontro}
+
+Dada três funções reais, denotadas de $f(x)$, $g(x)$ e $h(x)$, de modo quê
+\begin{equation}
+\label{ineq:teorema-do-confronto}
+f(x) \leq g(x) \leq h(x)
+\end{equation}
+Se, e somente se, o limite de $f(x)$ para $x\to c$ e o limite de $h(x)$ para $x\to c$ forem \textbf{iguais}, ou seja
+\begin{equation*}
+  \lim_{x\to c} f(x) = \lim_{x\to c} h(x)
+\end{equation*}
+Então, obrigatoriamente, o limite de $g(x)$ para $x\to c$ será igual ao limite de $f(x)$ e $h(x)$, pois todas as 3 funções se espremerão em um único ponto $c$. Em resumo
+
+\begin{equation}
+\lim_{x\to c} f(x) = \lim_{x\to c} g(x) = \lim_{x\to c} h(x)
+\end{equation}
+
+Usa-se o Teorema do Sanduíche juntamente a uma inequação imitando a condição da equação \ref{ineq:teorema-do-confronto}.
+
+\section{Definição Formal de Limite}
+
+Para definirmos limite com um grau maior de formalidade e fugir das definições intuitivas que causam ambiguidade, pode-se olhar limites de forma analítica. Considere a função condicional $f(x)$ definida por
+
+\[
+  \lim_{x\to 3} f(x)=
+  \begin{cases}
+    2x - 1,& \text{se } x\neq 3 \\
+    6,& \text{se } x = 3
+  \end{cases}
+\]
+
+Sabe-se que se $x$ tender a 3, $f(x)$ tenderá a 5 (porque $2(3) - 1 = 5$), apesar de $f(3) \neq 5$, já que para análise de limite o que realmente importa é a vizinhança de $f(5)$. Analisaremos então como $f(x)$ lida com a a variação em $x$.
+
+Inicialmente, nota-se que a distância de $x$ até 3 é $|x - 3|$\footnote{Analise o eixo $x$ graficamente, é semelhante ao $\Delta x$}, e que a distância de $f(x)$
+até $5$ é $|f(x) - 5$|. Pergunta-se então como se pode relacionar $\Delta x$ com
+$\Delta y$, de modo que $\Delta y$ seja menor que 0.1. Logo, temos o seguinte problema
+
+\begin{itemize}
+  \item $|f(x) - 5| < 0.1$, leia-se: $\Delta y < 0.1$
+  \item $|x - 3| < \delta$, leia-se: $\Delta x < \delta$
+\end{itemize}
+
+Devemos achar um número $\delta$ no eixo $x$ que faça $\Delta y$ ser menor
+que 0.1. Percebe-se que se $|x - 3| = 0$, teremos $x = 3$, o que atrapalha a análise proposta, e portanto, é necessário especificar que $|x - 3| > 0$ para que $x\neq 3$
+
+\begin{itemize}
+  \item $|f(x) - 5| < 0.1$
+  \item $0 < |x - 3| < \delta$
+\end{itemize}
+
+Se expandirmos o primeiro ponto, teremos
+
+\begin{itemize}
+  \item $|(2x - 1) - 5| < 0.1 \therefore |2(x - 3)| < 0.1$
+\end{itemize}
+
+Reescrevendo as informações, obtemos
+
+\begin{itemize}
+  \item $2|(x - 3)| < 0.1$\footnote{O 2 pode ser retirado do módulo por ser uma constante}
+  \item $0 < |x - 3| < \delta$
+\end{itemize}
+
+Com isso, é notável que o número $\delta$ é igual a $0.05$. Isso significa que se $\Delta x$ estiver próximo de $0.05$, então $\Delta y$ está perto de 0.1. De maneira análoga, se $\Delta x$ estiver próximo de $0.005$, então $\Delta y$ estará perto de $0.01$, e assim sucessivamente.
+
+No entanto, note que $\Delta x$ apresenta uma ``taxa de erro'', e não define o valor exato do limite de $f(x)$ (esse procedimento é equivalente a usar $x = 2.9999$ ou $3.0001$ para definir $L$). Com isso, utilizaremos a letra grega $\varepsilon$, que simboliza o menor número positivo possível (tão pequeno quanto se queira). Então
+
+\begin{itemize}
+  \item $|f(x) - 5| < \varepsilon$
+  \item 0 < $|x - 3| < \delta$
+\end{itemize}
+
+Escrevendo $\varepsilon$ em função de $\delta$, tem-se
+\[\varepsilon = 2\delta\]
+
+\begin{defin}
+  SSeja $f(x)$ uma função definida em algum intervalo aberto que contenha $a$ (não necessariamente definida para $f(a)$), dizemos que o limite de $f(x)$ para $x\to a$ é igual a $L$, denotado simbolicamente por
+
+  \begin{equation*}
+    \lim_{x\to a} f(x) = L
+  \end{equation*}
+
+  se para todo número $\varepsilon > 0$ houver também um número $\delta > 0$ tal que se $0 < |x - a| < \delta$ então $|f(x) - L| < \varepsilon$  
+\end{defin}
+
+Em termos de intervalos, podemos reescrever $0 < |x - a| < \delta$ como $-\delta < x - a < \delta$, que se traduz como $a - \delta < x < a + \delta$, o que auxilia na visualização de ``vizinhança''. 
+
+\end{document}
